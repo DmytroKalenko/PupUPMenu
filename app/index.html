@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MainPage</title>
+    <link rel="stylesheet" href="css/libs.min.css">
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+
+    <button class="order">Click Me XD</button>
+
+
+    <div class="PopUP">
+        <div class="PopUP__left__item">
+            <div class="products">
+                <div class="product__item"><img src="./images/products/item1.jpg" alt=""></div>
+                <div class="product__item"><img src="./images/products/item2.jpg" alt=""></div>
+                <div class="product__item"><img src="./images/products/item3.jpg" alt=""></div>
+                <div class="product__item"><img src="./images/products/item4.jpg" alt=""></div>
+                <div class="product__item"><img src="./images/products/item5.jpg" alt=""></div>
+            </div>
+        </div>
+        <div class="PopUP__right__item">
+            <div class="close">
+                <button>close</button>
+            </div>
+            <form action="">
+                <div class="form__item">
+                    <label for="selectSize">Proszę wybrać rozmiar</label>
+                    <select name="selectSize" id="selectSize" required>
+                            <option value="">1</option>
+                            <option value="">2</option>
+                            <option value="">3</option>
+                        </select>
+                </div>
+                <div class="form__item">
+                    <label for="selectColor">Proszę wybrać kolor</label>
+                    <select name="selectColor" id="selectColor" required>
+                            <option value="">1</option>
+                            <option value="">2</option>
+                            <option value="">3</option>
+                        </select>
+                </div>
+
+                <div class="form__item">
+                    <label for="selectVersion">Proszę wybrać wersję</label>
+                    <select name="selectVersion" id="selectVersion" required>
+                            <option value="">1</option>
+                            <option value="">2</option>
+                            <option value="">3</option>
+                        </select>
+                </div>
+
+                <div class="totalPrice">
+                    <p>Cena</p>
+                    <div class="price">100$$</div>
+                </div>
+                <div class="button"><button class="addToBasket">Dodaj do koszyka</button></div>
+            </form>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/libs.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
