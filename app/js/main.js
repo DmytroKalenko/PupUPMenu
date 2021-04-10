@@ -1,6 +1,6 @@
 //add_slider_Galery_with_products
 $('.products').slick({
-    
+
     // slidesToShow: 1,
     // slidesToScroll: 1,
     speed: 300,
@@ -55,4 +55,5 @@ Button.addEventListener('click', function(e) {
 
 CloseButton.addEventListener('click', function(e) {
     PopUP.classList.remove('active');
+    Overlay.classList.remove('active');
 });
