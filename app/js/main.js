@@ -1,45 +1,8 @@
 //add_slider_Galery_with_products
 $('.products').slick({
-
-    // slidesToShow: 1,
-    // slidesToScroll: 1,
     speed: 300,
     infinite: true,
-    // centerMode: true,
-    // focusOnSelect: true,
-    // waitForAnimate: false,
-    // responsive: [{
-    //         breakpoint: 753,
-    //         settings: {
-    //             vertical: false,
-    //             verticalSwiping: false,
-    //             centerMode: false,
-
-    //             speed: 300,
-    //             slidesToShow: 2,
-    // slidesToScroll: 3,
-    // infinite: true,
-    // dots: true
-    //     }
-    // },
-    // {
-    //     breakpoint: 600,
-    //     settings: {
-    //         slidesToShow: 2,
-    //         slidesToScroll: 2
-    //     }
-    // },
-    // {
-    //     breakpoint: 480,
-    //     settings: {
-    //         slidesToShow: 1,
-    //         slidesToScroll: 1
-    //     }
-    // }
-    // You can unslick at a given breakpoint now by adding:
-    // settings: "unslick"
-    // instead of a settings object
-    // ]
+    waitForAnimate: false,
 });
 
 //add__event__to__click__on__button
@@ -58,6 +21,23 @@ CloseButton.addEventListener('click', function(e) {
     Overlay.classList.remove('active');
 });
 
-Overlay.addEventListener('click', function(e) {
-    console.log('dd')
-});
+
+//programing__counter___button
+
+function addCounter() {
+    var Counter = document.querySelector(".counter .value").textContent;
+    var NewCounter = Number(Counter) + 1;
+    document.querySelector(".counter .value").textContent = NewCounter
+}
+
+function remCounter() {
+    var Counter = document.querySelector(".counter .value").textContent;
+    if (Counter <= 0) {
+        alert('Koszyk jest pusty')
+    } else {
+        var NewCounter = Number(Counter) - 1;
+        document.querySelector(".counter .value").textContent = NewCounter
+    };
+};
+
+//programing__size___button
