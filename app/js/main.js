@@ -40,4 +40,9 @@ function remCounter() {
     };
 };
 
-//programing__size___button
+//programing__arrey
+
+
+import my from './xbox.json';
+
+const MY = JSON.parse(my)
