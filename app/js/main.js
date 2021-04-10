@@ -57,3 +57,7 @@ CloseButton.addEventListener('click', function(e) {
     PopUP.classList.remove('active');
     Overlay.classList.remove('active');
 });
+
+Overlay.addEventListener('click', function(e) {
+    console.log('dd')
+});

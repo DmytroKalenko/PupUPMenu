@@ -1,13 +1,12 @@
 @import "vars";
 @import "global";
 .overlay {
-    display: flex;
-    background-color: transparent;
-    height: 100vh;
-    width: 100vw;
     &.active {
         display: block;
         background-color: rgba(0, 0, 0, 0.651);
+        height: 100vh;
+        width: 100vw;
+        position: relative;
     }
 }
 
@@ -202,9 +201,9 @@
 .MainButton {
     display: block;
     position: absolute;
-    top: 0%;
-    // left: 50%;
-    // transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color: #8bc34a;
     padding: 8px 20px;
     color: white;
