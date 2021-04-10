@@ -44,12 +44,14 @@ $('.products').slick({
 });
 
 //add__event__to__click__on__button
-const Button = document.querySelector(".order");
+const Button = document.querySelector(".MainButton");
 const PopUP = document.querySelector(".PopUP");
 const CloseButton = document.querySelector(".close button");
+const Overlay = document.querySelector(".overlay");
 
 Button.addEventListener('click', function(e) {
     PopUP.classList.add('active');
+    Overlay.classList.add('active');
 });
 
 CloseButton.addEventListener('click', function(e) {
