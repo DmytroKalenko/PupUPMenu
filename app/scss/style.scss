@@ -26,11 +26,36 @@
     width: 100%;
     border: 1px solid green;
     .products {
+      height: 100%;
+      position: relative;
+      min-width: 0;
+      .slick-list {
+        overflow: hidden;
+        height: 100%;
+      }
       .slick-track {
+        display: flex;
+        height: 100%;
       }
       .slick-slide {
+        height: 100%;
+        
+        div {
+          height: 100%;
+          .product__item {
+            img {
+              height: 100%;
+    width: 100%;
+    object-fit: contain;
+              // width: 100%;
+              // height: inherit;
+            }
+          }
+        }
       }
       .slick-arrow {
+        position: absolute;
+        z-index: 2;
       }
       .slick-arrow.slick-prev {
         background-image: url(../images/icons/arrowUp.svg);
@@ -62,20 +87,19 @@
         }
       }
     }
-    .title{
-        margin-bottom: 9px;
-        font-size: 11px;
+    .title {
+      margin-bottom: 9px;
+      font-size: 11px;
     }
     .buttons {
-    
       button {
         width: 99px;
         height: 35px;
         border: 1px solid $borderColor;
         border-radius: 4px;
         margin-bottom: 22px;
-        &+button{
-            margin-left: 15px;
+        & + button {
+          margin-left: 15px;
         }
         &:hover,
         &:focus {
@@ -83,36 +107,35 @@
         }
       }
     }
-    .order{
+    .order {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      .counter {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
-        .counter{
-          display: flex;
-          flex-direction: row;
-          justify-content: space-around;
-          align-items: center;
-          border: 1px solid $blueColor;
-          border-radius: 4px;
-          height: 50px;
-          width: 140px;
-          border: 1px solid #C3C7C8;
-          
-        }
-        .toBasket{
-            height: 50px;
-            width: 218px;
-            background-color: $blueColor;
-            border-radius: 4px;
-            color: white;
-        }
+        justify-content: space-around;
+        align-items: center;
+        border: 1px solid $blueColor;
+        border-radius: 4px;
+        height: 50px;
+        width: 140px;
+        border: 1px solid #c3c7c8;
+      }
+      .toBasket {
+        height: 50px;
+        width: 218px;
+        background-color: $blueColor;
+        border-radius: 4px;
+        color: white;
+      }
     }
-    .produkt__title{
-        font-weight: bold;
-        margin-bottom: 32px;
+    .produkt__title {
+      font-weight: bold;
+      margin-bottom: 32px;
     }
-    .select{
-      select{
+    .select {
+      select {
         height: 35px;
         width: 100%;
         padding: 7px;
@@ -120,21 +143,47 @@
         margin-bottom: 18px;
         border: 1px solid $borderColor;
         border-radius: 4px;
-        
       }
     }
-    .about__product{
+    .about__product {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       margin-bottom: 20px;
       font-size: 12px;
-      
-    line-height: 1.3;
-      .delivery{
-        a{
+      line-height: 1.3;
+      .inStock {
+        position: relative;
+        padding-left: 27px;
+        &::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          height: 13px;
+          width: 15px;
+          background-image: url(../images/icons/ok.svg);
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+      }
+      .delivery {
+        position: relative;
+        padding-left: 28px;
+        a {
           display: block;
           color: $blueColor;
+        }
+        &::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          height: 16px;
+          width: 16px;
+          background-image: url(../images/icons/timer.svg);
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
         }
       }
     }

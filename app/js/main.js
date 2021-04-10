@@ -1,11 +1,10 @@
 //add_slider_Galery_with_products
 $('.products').slick({
-    // vertical: true,
-    // verticalSwiping: true,
-    // slidesToShow: 3,
-    // slidesToScroll: 2,
-    // speed: 300,
-    // infinite: true,
+    
+    // slidesToShow: 1,
+    // slidesToScroll: 1,
+    speed: 300,
+    infinite: true,
     // centerMode: true,
     // focusOnSelect: true,
     // waitForAnimate: false,
