@@ -280,17 +280,17 @@ async function formSend(e) {
                 SecondBtnBasket = document.querySelector('.form_radio_group-item.second input').checked,
                 ThirdBtnBasket = document.querySelector('.form_radio_group-item.third input').checked;
             if (FirstBtnBasket || SecondBtnBasket || ThirdBtnBasket) {
-                return Flag = true
+                Flag = true
+                if (Flag == true && document.querySelector(".counter .value").textContent > 0) {
+                    return Flag = true
+                } else {
+                    alert('Proszę wybrać rozmiar produktu i wpisać ilość sztuk')
+                };
             } else {
                 alert('Proszę wybrać rozmiar')
             };
         };
         BtnReq();
-        if (Flag == true && document.querySelector(".counter .value").textContent > 0) {
-            return Flag = true
-        } else {
-            alert('Proszę wybrać rozmiar produktu i wpisać ilość sztuk')
-        };
     };
 
 

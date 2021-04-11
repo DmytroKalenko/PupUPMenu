@@ -141,19 +141,16 @@
                     position: relative;
                     input {
                         position: absolute;
+                        background-color: transparent;
+                        height: 100%;
+                        width: 20px;
+                        border: none;
+                        display: block;
                         &:first-child {
-                            left: 0;
-                            content: "ssssss";
-                            background-color: red;
-                            height: 100%;
-                            width: 20px;
+                            left: 5px;
                         }
                         &:last-child {
-                            right: 0;
-                            content: "ssssss";
-                            background-color: rgb(0, 253, 63);
-                            height: 100%;
-                            width: 20px;
+                            right: 5px;
                         }
                     }
                 }
