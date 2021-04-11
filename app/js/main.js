@@ -263,10 +263,32 @@ Form.addEventListener('submit', formSend);
 
 async function formSend(e) {
     e.preventDefault();
+    var Flag = false;
     let error = ToCheck(Form);
     let formData = new FormData(Form);
 
-    if (error === 0) {
+    //check__validation__form
+    function ToCheck() {
+        function BtnReq() {
+            var FirstBtnBasket = document.querySelector('.form_radio_group-item.first input').checked,
+                SecondBtnBasket = document.querySelector('.form_radio_group-item.second input').checked,
+                ThirdBtnBasket = document.querySelector('.form_radio_group-item.third input').checked;
+            if (FirstBtnBasket || SecondBtnBasket || ThirdBtnBasket) {
+                return Flag = true
+            } else {
+                alert('Proszę wybrać rozmiar')
+            };
+        };
+        BtnReq();
+        if (Flag == true && document.querySelector(".counter .value").textContent > 0) {
+            return Flag = true
+        } else {
+            alert('Proszę wybrać rozmiar produktu i wpisać ilość sztuk')
+        };
+    };
+
+
+    if (Flag == true) {
         let response = await fetch('sendmail.php', {
             method: 'POST',
             body: formData
@@ -281,28 +303,4 @@ async function formSend(e) {
     } else {
         alert('Nie wyslano')
     }
-
-
-
-};
-//check__validation__form
-function ToCheck() {
-    var Flag = false;
-
-    function BtnReq() {
-        var FirstBtnBasket = document.querySelector('.form_radio_group-item.first input').checked,
-            SecondBtnBasket = document.querySelector('.form_radio_group-item.second input').checked,
-            ThirdBtnBasket = document.querySelector('.form_radio_group-item.third input').checked;
-        if (FirstBtnBasket || SecondBtnBasket || ThirdBtnBasket) {
-            return Flag = true
-        } else {
-            alert('Proszę wybrać rozmiar')
-        };
-    };
-    BtnReq();
-    if (Flag == true && document.querySelector(".counter .value").textContent > 0) {
-        alert("Zamówienie zostało złożone - dziękujemy")
-    } else {
-        alert('Proszę wybrać rozmiar produktu i wpisać ilość sztuk')
-    };
 };
