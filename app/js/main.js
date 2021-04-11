@@ -256,6 +256,12 @@ black.textContent = BlackColorDevice,
     grej.textContent = WhiteColorDevice,
     white.textContent = GrejColorDevice;
 
+//programing__select__wersion__device
+
+let select = document.querySelector("#select");
+
+
+
 // programing__send__form
 
 const Form = document.querySelector('.form');
@@ -298,7 +304,7 @@ async function formSend(e) {
             alert(result.message);
             Form.reset();
         } else {
-            alert("Error")
+            alert("Niema polaczenia z serwerom")
         }
     } else {
         alert('Nie wyslano')
