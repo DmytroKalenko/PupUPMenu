@@ -186,7 +186,7 @@
                 margin-bottom: 20px;
                 font-size: 12px;
                 line-height: 1.3;
-                .inStock {
+                .Warehouse {
                     position: relative;
                     padding-left: 27px;
                     &::before {
@@ -199,6 +199,20 @@
                         background-size: contain;
                         background-position: center;
                         background-repeat: no-repeat;
+                    }
+                    &.outStock {
+                        position: relative;
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            left: 0;
+                            height: 13px;
+                            width: 15px;
+                            background-image: url(../images/icons/wrong.svg);
+                            background-size: contain;
+                            background-position: center;
+                            background-repeat: no-repeat;
+                        }
                     }
                 }
                 .delivery {
