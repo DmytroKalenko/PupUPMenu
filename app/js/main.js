@@ -159,7 +159,7 @@ fetch("/js/xbox.json")
                         } else if (document.querySelector(".counter .value").textContent == 0) {
                             alert('Nie wybrano ilość,  Proszę zaznaczyć ilość produktu')
                         } else if (document.querySelector(".counter .value").textContent > amount96GB) {
-                            alert('Niestety na magazynie mamy tylko' + amount96GB + 'szt. productu')
+                            alert('Na magazynie zostało tylko' + amount96GB + 'szt. productu')
                         };
                     } else {
                         alert('Nie wybrano żadnego produktu')
