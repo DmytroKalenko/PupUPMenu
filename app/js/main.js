@@ -11,12 +11,12 @@ const PopUP = document.querySelector(".PopUP");
 const CloseButton = document.querySelector(".close button");
 const Overlay = document.querySelector(".overlay");
 
-Button.addEventListener('click', function(e) {
+Button.addEventListener('click', function (e) {
     PopUP.classList.add('active');
     Overlay.classList.add('active');
 });
 
-CloseButton.addEventListener('click', function(e) {
+CloseButton.addEventListener('click', function (e) {
     PopUP.classList.remove('active');
     Overlay.classList.remove('active');
 });
@@ -71,11 +71,33 @@ fetch("./js/xbox.json")
 
         Warehouse = document.querySelector('.Warehouse');
 
+        //add__event_:_if__click_on_radio__button__COunt_value_equals 0
+        FirstBtnBasket.addEventListener('click', function (e) {
+            Warehouse.classList.remove('outStock');
+            Warehouse.textContent = 'Product dostępny';
+            document.querySelector(".counter .value").textContent = 0;
+
+        });
+        SecondBtnBasket.addEventListener('click', function (e) {
+            Warehouse.classList.remove('outStock');
+            Warehouse.textContent = 'Product dostępny';
+            document.querySelector(".counter .value").textContent = 0;
+
+        });
+        ThirdBtnBasket.addEventListener('click', function (e) {
+            Warehouse.classList.remove('outStock');
+            Warehouse.textContent = 'Product dostępny';
+            document.querySelector(".counter .value").textContent = 0;
+
+        });
+
+
+
         //add events to buttons counter
         var ButtonPLUS = document.querySelector(".counter .plus"),
             ButtonMinus = document.querySelector(".counter .minus");
         //create__counter____remove__value
-        ButtonPLUS.addEventListener('click', function(e) {
+        ButtonPLUS.addEventListener('click', function (e) {
             var Counter = document.querySelector(".counter .value").textContent;
             var NewCounter = Number(Counter) + 1;
             document.querySelector(".counter .value").textContent = NewCounter;
@@ -93,7 +115,7 @@ fetch("./js/xbox.json")
             }
         });
         //create__counter___add__value
-        ButtonMinus.addEventListener('click', function(e) {
+        ButtonMinus.addEventListener('click', function (e) {
             var Counter = document.querySelector(".counter .value").textContent;
             Warehouse.classList.remove('outStock');
             Warehouse.textContent = 'Product dostępny';
@@ -141,29 +163,29 @@ fetch("./js/xbox.json")
                         };
 
                     } else
-                    if (SecondBtnBasket.checked) {
-                        if (document.querySelector(".counter .value").textContent != 0 && document.querySelector(".counter .value").textContent <= amount64GB) {
-                            Flag = true;
-                        } else if (document.querySelector(".counter .value").textContent == 0) {
-                            alert('Nie wybrano ilość,  Proszę zaznaczyć ilość produktu')
-                        } else if (document.querySelector(".counter .value").textContent > amount64GB) {
-                            alert('Niestety na magazynie mamy tylko' + amount64GB + 'szt. produktu')
-                        };
+                        if (SecondBtnBasket.checked) {
+                            if (document.querySelector(".counter .value").textContent != 0 && document.querySelector(".counter .value").textContent <= amount64GB) {
+                                Flag = true;
+                            } else if (document.querySelector(".counter .value").textContent == 0) {
+                                alert('Nie wybrano ilość,  Proszę zaznaczyć ilość produktu')
+                            } else if (document.querySelector(".counter .value").textContent > amount64GB) {
+                                alert('Niestety na magazynie mamy tylko' + amount64GB + 'szt. produktu')
+                            };
 
 
 
 
-                    } else if (ThirdBtnBasket.checked) {
-                        if (document.querySelector(".counter .value").textContent != 0 && document.querySelector(".counter .value").textContent <= amount96GB) {
-                            Flag = true;
-                        } else if (document.querySelector(".counter .value").textContent == 0) {
-                            alert('Nie wybrano ilość,  Proszę zaznaczyć ilość produktu')
-                        } else if (document.querySelector(".counter .value").textContent > amount96GB) {
-                            alert('Na magazynie zostało tylko' + amount96GB + 'szt. productu')
-                        };
-                    } else {
-                        alert('Nie wybrano żadnego produktu')
-                    }
+                        } else if (ThirdBtnBasket.checked) {
+                            if (document.querySelector(".counter .value").textContent != 0 && document.querySelector(".counter .value").textContent <= amount96GB) {
+                                Flag = true;
+                            } else if (document.querySelector(".counter .value").textContent == 0) {
+                                alert('Nie wybrano ilość,  Proszę zaznaczyć ilość produktu')
+                            } else if (document.querySelector(".counter .value").textContent > amount96GB) {
+                                alert('Na magazynie zostało tylko' + amount96GB + 'szt. productu')
+                            };
+                        } else {
+                            alert('Nie wybrano żadnego produktu')
+                        }
 
                 };
                 BtnReq();
