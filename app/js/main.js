@@ -22,23 +22,7 @@ CloseButton.addEventListener('click', function(e) {
 });
 
 
-//programing__counter___button
 
-function addCounter() {
-    var Counter = document.querySelector(".counter .value").textContent;
-    var NewCounter = Number(Counter) + 1;
-    document.querySelector(".counter .value").textContent = NewCounter
-}
-
-function remCounter() {
-    var Counter = document.querySelector(".counter .value").textContent;
-    if (Counter <= 0) {
-        alert('Koszyk jest pusty')
-    } else {
-        var NewCounter = Number(Counter) - 1;
-        document.querySelector(".counter .value").textContent = NewCounter
-    };
-};
 
 
 var MYArray = {
@@ -249,9 +233,51 @@ black.textContent = BlackColorDevice,
     grej.textContent = WhiteColorDevice,
     white.textContent = GrejColorDevice;
 
-//programing__select__wersion__device
 
-let select = document.querySelector("#select");
+
+//programing__counter___button
+var FirstBtnBasket = document.querySelector('.form_radio_group-item.first input'),
+    SecondBtnBasket = document.querySelector('.form_radio_group-item.second input'),
+    ThirdBtnBasket = document.querySelector('.form_radio_group-item.third input');
+
+var amount32GB = MYArray.sizes.items.W.amount,
+    amount64GB = MYArray.sizes.items.U.amount,
+    amount96GB = MYArray.sizes.items.V.amount;
+
+Warehouse = document.querySelector('.Warehouse');
+
+function addCounter() {
+    var Counter = document.querySelector(".counter .value").textContent;
+    var NewCounter = Number(Counter) + 1;
+    document.querySelector(".counter .value").textContent = NewCounter;
+
+    if (FirstBtnBasket.checked && document.querySelector(".counter .value").textContent > amount32GB) {
+        Warehouse.classList.add('outStock');
+        Warehouse.textContent = 'niema na magazynie ';
+    } else if (
+        SecondBtnBasket.checked && document.querySelector(".counter .value").textContent > amount64GB) {
+        Warehouse.classList.add('outStock');
+        Warehouse.textContent = 'niema na magazynie ';
+    } else if (ThirdBtnBasket.checked && document.querySelector(".counter .value").textContent > amount96GB) {
+        Warehouse.classList.add('outStock');
+        Warehouse.textContent = 'niema na magazynie ';
+    }
+}
+
+function remCounter() {
+    var Counter = document.querySelector(".counter .value").textContent;
+    Warehouse.classList.remove('outStock');
+    Warehouse.textContent = 'Product dostępny';
+    if (Counter <= 0) {
+        alert('Koszyk jest pusty')
+    } else {
+        var NewCounter = Number(Counter) - 1;
+        document.querySelector(".counter .value").textContent = NewCounter
+
+    };
+};
+
+
 
 
 
@@ -277,15 +303,40 @@ async function formSend(e) {
                 amount64GB = MYArray.sizes.items.U.amount,
                 amount96GB = MYArray.sizes.items.V.amount;
 
-            if (FirstBtnBasket.checked && document.querySelector(".counter .value").textContent != 0 && document.querySelector(".counter .value").textContent <= amount32GB) {
-                Flag = true;
-                return console.log(Flag)
-            } else if (SecondBtnBasket.checked && document.querySelector(".counter .value").textContent != 0 && document.querySelector(".counter .value").textContent <= amount64GB) {
-                Flag = true;
-                return console.log('else if', Flag)
-            } else if (ThirdBtnBasket.checked && document.querySelector(".counter .value").textContent != 0 && document.querySelector(".counter .value").textContent <= amount96GB) {
-                Flag = true;
-                return console.log('2else if', Flag)
+            if (FirstBtnBasket.checked) {
+                if (document.querySelector(".counter .value").textContent != 0 && document.querySelector(".counter .value").textContent <= amount32GB) {
+                    Flag = true;
+                    return console.log(Flag);
+                } else if (document.querySelector(".counter .value").textContent == 0) {
+                    alert('Nie wybrano ilosc,  Prosze zaznacyc ilosc produktu')
+                } else if (document.querySelector(".counter .value").textContent > amount32GB) {
+
+                    alert('Niestety na magazynie mamy tylko' + amount32GB + 'szt. productu')
+                };
+
+            } else
+            if (SecondBtnBasket.checked) {
+                if (document.querySelector(".counter .value").textContent != 0 && document.querySelector(".counter .value").textContent <= amount64GB) {
+                    Flag = true;
+                    return console.log('else if', Flag)
+                } else if (document.querySelector(".counter .value").textContent == 0) {
+                    alert('Nie wybrano ilosc,  Prosze zaznacyc ilosc produktu')
+                } else if (document.querySelector(".counter .value").textContent > amount64GB) {
+                    alert('Niestety na magazynie mamy tylko' + amount64GB + 'szt. productu')
+                };
+
+
+
+
+            } else if (ThirdBtnBasket.checked) {
+                if (document.querySelector(".counter .value").textContent != 0 && document.querySelector(".counter .value").textContent <= amount96GB) {
+                    Flag = true;
+                    return console.log('2else if', Flag)
+                } else if (document.querySelector(".counter .value").textContent == 0) {
+                    alert('Nie wybrano ilosc,  Prosze zaznacyc ilosc produktu')
+                } else if (document.querySelector(".counter .value").textContent > amount96GB) {
+                    alert('Niestety na magazynie mamy tylko' + amount96GB + 'szt. productu')
+                };
             }
 
         };
