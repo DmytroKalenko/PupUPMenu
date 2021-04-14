@@ -23,7 +23,7 @@ CloseButton.addEventListener('click', function(e) {
 
 
 // GET___file__***.json__from__server 
-fetch("/js/xbox.json")
+fetch("./js/xbox.json")
     .then((response) => {
         return response.json();
     })
