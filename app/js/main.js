@@ -98,7 +98,7 @@ fetch("/js/xbox.json")
             Warehouse.classList.remove('outStock');
             Warehouse.textContent = 'Product dostępny';
             if (Counter <= 0) {
-                alert('Koszyk jest pusty')
+                alert('ilość produktu = 0')
             } else {
                 var NewCounter = Number(Counter) - 1;
                 document.querySelector(".counter .value").textContent = NewCounter
@@ -133,9 +133,8 @@ fetch("/js/xbox.json")
                     if (FirstBtnBasket.checked) {
                         if (document.querySelector(".counter .value").textContent != 0 && document.querySelector(".counter .value").textContent <= amount32GB) {
                             Flag = true;
-                            return console.log(Flag);
                         } else if (document.querySelector(".counter .value").textContent == 0) {
-                            alert('Nie wybrano ilosc,  Prosze zaznacyc ilosc produktu')
+                            alert('Nie wybrano ilość,  Proszę zaznaczyć ilość produktu')
                         } else if (document.querySelector(".counter .value").textContent > amount32GB) {
 
                             alert('Niestety na magazynie mamy tylko' + amount32GB + 'szt. productu')
@@ -145,11 +144,10 @@ fetch("/js/xbox.json")
                     if (SecondBtnBasket.checked) {
                         if (document.querySelector(".counter .value").textContent != 0 && document.querySelector(".counter .value").textContent <= amount64GB) {
                             Flag = true;
-                            return console.log('else if', Flag)
                         } else if (document.querySelector(".counter .value").textContent == 0) {
-                            alert('Nie wybrano ilosc,  Prosze zaznacyc ilosc produktu')
+                            alert('Nie wybrano ilość,  Proszę zaznaczyć ilość produktu')
                         } else if (document.querySelector(".counter .value").textContent > amount64GB) {
-                            alert('Niestety na magazynie mamy tylko' + amount64GB + 'szt. productu')
+                            alert('Niestety na magazynie mamy tylko' + amount64GB + 'szt. produktu')
                         };
 
 
@@ -158,14 +156,13 @@ fetch("/js/xbox.json")
                     } else if (ThirdBtnBasket.checked) {
                         if (document.querySelector(".counter .value").textContent != 0 && document.querySelector(".counter .value").textContent <= amount96GB) {
                             Flag = true;
-                            return console.log('2else if', Flag)
                         } else if (document.querySelector(".counter .value").textContent == 0) {
-                            alert('Nie wybrano ilosc,  Prosze zaznacyc ilosc produktu')
+                            alert('Nie wybrano ilość,  Proszę zaznaczyć ilość produktu')
                         } else if (document.querySelector(".counter .value").textContent > amount96GB) {
-                            alert('Niestety na magazynie mamy tylko' + amount96GB + 'szt. productu')
+                            alert('Na magazynie zostało tylko' + amount96GB + 'szt. productu')
                         };
                     } else {
-                        alert('Nie wybrano zadnego produktu')
+                        alert('Nie wybrano żadnego produktu')
                     }
 
                 };
@@ -178,15 +175,18 @@ fetch("/js/xbox.json")
                     method: 'POST',
                     body: formData
                 });
+                alert("Zamówienie zostało złożone")
                 if (response.ok) {
                     let result = await response.json();
                     alert(result.message);
                     Form.reset();
                 } else {
-                    alert("Niema polaczenia z serwerom")
+                    alert("Brak połączenia z serwerem ")
                 }
+
+
             } else {
-                alert('Nie wyslano')
+                alert('Nie wysłano')
             }
         };
 
