@@ -8,7 +8,7 @@
 • Sizes / versions have different stock levels and prices,
 • Clicking "Add to Cart" submits the form,
 • Pop-up window done (RWD, "Mobile-First"),
-• Compliance with W3C standards,
+• Compliance with W3C standards
 • Icons in the .svg extension.
 
 https://dmytrokalenko.github.io/PupUPMenu/
