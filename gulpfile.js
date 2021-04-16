@@ -9,11 +9,11 @@ var gulp = require('gulp'),
 
 
 gulp.task('sass', function() { //convert sass to css
-    return gulp.src('app/scss/style.scss') //create file.scss
+    return gulp.src('scss/style.scss') //create file.scss
         .pipe(sass({ outputStyle: 'compressed' }))
         .pipe(rename({ suffix: '.min' })) // create min file css
         .pipe(autoprefixer({ overrideBrowserslist: ['last 8 versions'] })) // add prefixs -ms, -webkit
-        .pipe(gulp.dest('app/css'))
+        .pipe(gulp.dest('css'))
         .pipe(browserSync.reload({ stream: true })) // update site page
 });
 
@@ -28,7 +28,7 @@ gulp.task('style', function() { ///add CSS files our option counten __slick_slid
         ])
         .pipe(concat('libs.min.css')) // concatynation  both files to 1
         .pipe(cssmin()) // minimization file
-        .pipe(gulp.dest('app/css')) // create file in the folder
+        .pipe(gulp.dest('css')) // create file in the folder
 });
 
 gulp.task('script', function() { ///add JS files our option counten __slick_slider and other
@@ -39,15 +39,15 @@ gulp.task('script', function() { ///add JS files our option counten __slick_slid
         ])
         .pipe(concat('libs.min.js')) // concatynation  both files to 1
         .pipe(uglify()) // minimization file
-        .pipe(gulp.dest('app/js')) // create file in the folder
+        .pipe(gulp.dest('js')) // create file in the folder
 });
 
 gulp.task('html', function() {
-    return gulp.src('app/*.html')
+    return gulp.src('*.html')
         .pipe(browserSync.reload({ stream: true }))
 });
 gulp.task('js', function() {
-    return gulp.src('app/*.js')
+    return gulp.src('*.js')
         .pipe(browserSync.reload({ stream: true }))
 });
 
@@ -55,15 +55,15 @@ gulp.task('js', function() {
 gulp.task('browser-sync', function() { // update site page
     browserSync.init({
         server: {
-            baseDir: "app/"
+            baseDir: "./"
         }
     });
 });
 
 gulp.task('watch', function() { //auto update file
-    gulp.watch('app/scss/**/*.scss', gulp.parallel('sass'))
-    gulp.watch('app/*.html', gulp.parallel('html'))
-    gulp.watch('app/js/*.js', gulp.parallel('js'))
+    gulp.watch('scss/**/*.scss', gulp.parallel('sass'))
+    gulp.watch('*.html', gulp.parallel('html'))
+    gulp.watch('js/*.js', gulp.parallel('js'))
 })
 
 gulp.task('default', gulp.parallel('sass', 'watch', 'browser-sync', 'script', 'style'))
